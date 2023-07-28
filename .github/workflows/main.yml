@@ -19,8 +19,8 @@ jobs:
       run: |
           cd server
           time=$(date +%s)
-          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$(time)
-          docker push elhambadri2411/playbook-amey-elham-server:$(time)
+          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$time
+          docker push elhambadri2411/playbook-amey-elham-server:$time
 
   build_client_image:
     name: "Build Docker image for client"
@@ -33,5 +33,5 @@ jobs:
       run: |
           cd client
           time=$(date +%s)
-          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$(time)
-          docker push elhambadri2411/playbook-amey-elham-client:$(time)
+          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$time
+          docker push elhambadri2411/playbook-amey-elham-client:$time
