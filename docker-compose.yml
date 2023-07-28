@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  client:
+    image: elhambadri2411/playbook-amey-elham-client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+  server:
+    image: elhambadri2411/playbook-amey-elham-client
+    ports:
+      - "8080:8080"
