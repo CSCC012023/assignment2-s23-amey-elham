@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build_client_image:
+  build_server_image:
     name: "Build Docker image for server"
 
     runs-on: ubuntu-latest
