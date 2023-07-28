@@ -9,6 +9,6 @@ services:
       - server
 
   server:
-    image: elhambadri2411/playbook-amey-elham-client
+    image: elhambadri2411/playbook-amey-elham-server
     ports:
       - "8080:8080"

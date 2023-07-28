@@ -43,10 +43,10 @@ io.on("connection", (socket) => {
   });
 });
 
-// new 
+// new
 global.mongoose = mongoose;
 
-app.use(cors());
+//app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,7 +62,8 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
   gridBucket = new mongoose.mongo.GridFSBucket(connection.db, {
-    bucketName: 'postFiles'});
+    bucketName: "postFiles",
+  });
 });
 
 app.use(cors());
