@@ -1,0 +1,29 @@
+name: Playbook CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build_client_image:
+    name: "Build Docker image for server"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$(date +%s)
+
+  build_client_image:
+    name: "Build Docker image for client"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$(date +%s)
