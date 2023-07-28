@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$(date +%s)
+      run: docker build . --file ./server/Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$(date +%s)
 
   build_client_image:
     name: "Build Docker image for client"
@@ -26,4 +26,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$(date +%s)
+      run: docker build . --file ./client/Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$(date +%s)
