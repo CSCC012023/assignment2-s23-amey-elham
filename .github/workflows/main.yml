@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       run: |
           cd server
-          docker build . --file ./server/Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$(date +%s)
+          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$(date +%s)
 
   build_client_image:
     name: "Build Docker image for client"
@@ -29,5 +29,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-          cd ../client
+          cd client
           docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$(date +%s)
