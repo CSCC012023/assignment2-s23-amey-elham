@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build_server_image:
+  build_playbook_image:
     name: "Build Docker image for server and client"
     runs-on: ubuntu-latest
     steps:
