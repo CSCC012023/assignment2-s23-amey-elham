@@ -1,4 +1,4 @@
-name: Playbook CI
+name: Playbook CI/CD
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build_playbook_image:
+  build_deploy:
     name: "Build Docker image for server and client"
     runs-on: ubuntu-latest
     steps:
@@ -33,3 +33,30 @@ jobs:
           time=$(date +%s)
           docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$time
           docker push elhambadri2411/playbook-amey-elham-client:$time
+
+      - name: Login to GCP
+        uses: google-github-actions/auth@v1 
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Configure Docker
+        run: |
+          gcloud auth configure-docker
+
+      - name: Install and Setup Kubectl
+        run: |
+          gcloud components install kubectl
+          gcloud container clusters get-credentials playbook-k8s-cluster --zone ${{ secrets.GCP_ZONE }}
+
+      - name: Deploy server to GKE
+        run: |
+          kubectl run playbook-amey-elham-server --image=elhambadri2411/playbook-amey-elham-server:$time
+
+      - name: Deploy client to GKE
+        run: |
+          kubectl run playbook-amey-elham-client --image=elhambadri2411/playbook-amey-elham-client:$time
