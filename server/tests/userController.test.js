@@ -56,7 +56,7 @@ describe("Test user routes", () => {
     });
 
     await User.deleteOne({ email: email });
-    
+
     expect(response.status).toBe(403);
     expect(response.body.message).toBe("Email not verified");
   });
@@ -83,8 +83,35 @@ describe("Test user routes", () => {
     });
 
     await User.deleteOne({ email: email });
-    
+
     expect(response.status).toBe(400);
     expect(response.body.message).toBe("Invalid credentials");
+  });
+
+  it("should prevent login when email and/or password is not sent", async () => {
+    const email = "test@test.com";
+    const password = "testPassword";
+
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // create user that has been verified
+    await User.create({
+      userName: "test",
+      email: email,
+      password: hashedPassword,
+      isverified: true,
+    });
+
+    const response = await request.post("/api/users/login").send({
+      email: "",
+      password: "123",
+    });
+
+    await User.deleteOne({ email: email });
+
+    expect(response.status).toBe(400);
+    expect(response.body.message).toBe("Please enter all fields");
   });
 });
