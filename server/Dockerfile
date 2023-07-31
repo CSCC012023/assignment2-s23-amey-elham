@@ -1,7 +1,7 @@
 # Use a Node.js base image
 FROM node:14
 
-ENV MONGO_URI=mongodb+srv://cscc01:123@cluster0.4h2rq8m.mongodb.net/CSCC01-200-OK-DB?retryWrites=true&w=majority
+ENV MONGO_URI=mongodb+srv://cscc01:123@cluster0.4h2rq8m.mongodb.net/amey-elham-a2?retryWrites=true&w=majority
 ENV PORT=8080
 ENV JWT_SECRET=playbooksecret
 ENV EMAIL=playbookverse@gmail.com
