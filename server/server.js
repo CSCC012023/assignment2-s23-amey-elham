@@ -17,6 +17,7 @@ import { Server } from "socket.io";
 dotenv.config();
 
 const app = express();
+console.log(process.env.MONGO_URI);
 
 const httpServer = createServer(app);
 
