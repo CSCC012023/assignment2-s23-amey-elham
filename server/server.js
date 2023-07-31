@@ -15,7 +15,6 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 
 dotenv.config();
-const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -81,6 +80,4 @@ app.use("/api/message", messageRoutes);
 
 app.use(errorHandler);
 
-httpServer.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
-});
+export default httpServer;
