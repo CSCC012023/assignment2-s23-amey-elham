@@ -55,8 +55,8 @@ jobs:
 
       - name: Deploy server to GKE
         run: |
-          kubectl apply -f ./k8/server-deployment.yaml
+          kubectl apply -f .github/workflows/k8/server-deployment.yaml
           
       - name: Deploy client to GKE
         run: |
-          kubectl apply -f ./k8/client-deployment.yaml
+          kubectl apply -f .github/workflows/k8/client-deployment.yaml
