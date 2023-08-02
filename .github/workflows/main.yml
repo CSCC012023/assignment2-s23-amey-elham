@@ -55,8 +55,8 @@ jobs:
 
       - name: Deploy server to GKE
         run: |
-          kubectl run playbook-amey-elham-server --image=elhambadri2411/playbook-amey-elham-server
-
+          kubectl apply -f ./k8/server-deployment.yaml
+          
       - name: Deploy client to GKE
         run: |
-          kubectl run playbook-amey-elham-client --image=elhambadri2411/playbook-amey-elham-client
+          kubectl apply -f ./k8/client-deployment.yaml
