@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playbook-amey-elham-client
+spec:
+  selector:
+    matchLabels:
+      app: playbook-amey-elham-client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: playbook-amey-elham-client
+    spec:
+      containers:
+        - name: playbook-amey-elham-client
+          image: elhambadri2411/playbook-amey-elham-client

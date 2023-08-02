@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playbook-amey-elham-server
+spec:
+  selector:
+    matchLabels:
+      app: playbook-amey-elham-server # This label will be used to select the pods
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: playbook-amey-elham-server # This label will be applied to the pods
+    spec:
+      containers:
+        - name: playbook-amey-elham-server
+          image: elhambadri2411/playbook-amey-elham-server
