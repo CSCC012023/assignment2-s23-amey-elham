@@ -114,4 +114,9 @@ describe("Test user routes", () => {
     expect(response.status).toBe(400);
     expect(response.body.message).toBe("Please enter all fields");
   });
+
+  afterAll(async () => {
+    await mongoose.disconnect();
+    await app.close()
+  });
 });
