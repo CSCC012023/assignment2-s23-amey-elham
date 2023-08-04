@@ -37,16 +37,14 @@ jobs:
       - name: Build the Docker server image
         run: |
           cd server
-          time=$(date +%s)
-          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server:$time
-          docker push elhambadri2411/playbook-amey-elham-server:$time
+          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-server
+          docker push elhambadri2411/playbook-amey-elham-server
 
       - name: Build the Docker client image
         run: |
           cd client
-          time=$(date +%s)
-          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client:$time
-          docker push elhambadri2411/playbook-amey-elham-client:$time
+          docker build . --file Dockerfile --tag elhambadri2411/playbook-amey-elham-client
+          docker push elhambadri2411/playbook-amey-elham-client
 
       - name: Login to GCP
         uses: google-github-actions/auth@v1 
@@ -67,6 +65,7 @@ jobs:
           gcloud components install kubectl
           gcloud container clusters get-credentials playbook-k8s-cluster --zone ${{ secrets.GCP_ZONE }}
 
+       -
       - name: Deploy server to GKE
         run: |
           kubectl apply -f .github/workflows/k8/server-deployment.yaml
