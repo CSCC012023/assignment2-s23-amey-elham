@@ -31,6 +31,11 @@ The Playbook project leverages a Continuous Integration and Continuous Deploymen
 4. **Deploy the Application:** Apply the Kubernetes deployment files to your GKE cluster.
 5. ********************************Github Secrets:******************************** make sure to have all the correct secrets for the application that are specified in the .yml files
 
+## **Access the app (EXTERNAL_IPs)**
+
+**Frontend** - 34.139.167.10
+**Backend** - 35.227.90.1
+
 ## **Additional Resources**
 
 For a detailed explanation of the system's design and workflow, refer to the accompanying System Design Document. `SDD.md`
