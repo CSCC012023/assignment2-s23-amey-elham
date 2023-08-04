@@ -33,8 +33,8 @@ The Playbook project leverages a Continuous Integration and Continuous Deploymen
 
 ## **Access the app (EXTERNAL_IPs)**
 
-**Frontend** - 34.139.167.10
-**Backend** - 35.227.90.1
+- **Frontend** - 34.139.167.10
+- **Backend** - 35.227.90.1
 
 ## **Additional Resources**
 
